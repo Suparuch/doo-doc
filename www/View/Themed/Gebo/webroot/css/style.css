@@ -244,7 +244,7 @@
 
 		.login_page body {
 			margin-top:30px;
-			background-image: url("/img/bg_login.png");
+			background-image: url("../img/bg_login.png");
 			-webkit-background-size: cover; /* For WebKit*/
 			-moz-background-size: cover;    /* Mozilla*/
 			-o-background-size: cover;      /* Opera*/

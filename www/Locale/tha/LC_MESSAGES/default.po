@@ -1,0 +1,73 @@
+msgid "long_month1"
+msgstr "มกราคม"
+
+msgid "long_month2"
+msgstr "กุมภาพันธ์"
+
+msgid "long_month3"
+msgstr "มีนาคม"
+
+msgid "long_month4"
+msgstr "เมษายน"
+
+msgid "long_month5"
+msgstr "พฤษภาคม"
+
+msgid "long_month6"
+msgstr "มิถุนายน"
+
+msgid "long_month7"
+msgstr "กรกฎาคม"
+
+msgid "long_month8"
+msgstr "สิงหาคม"
+
+msgid "long_month9"
+msgstr "กันยายน"
+
+msgid "long_month10"
+msgstr "ตุลาคม"
+
+msgid "long_month11"
+msgstr "พฤศจิกายน"
+
+msgid "long_month12"
+msgstr "ธันวาคม"
+
+msgid "short_month1"
+msgstr "ม.ค."
+
+msgid "short_month2"
+msgstr "ก.พ."
+
+msgid "short_month3"
+msgstr "มี.ค."
+
+msgid "short_month4"
+msgstr "ม.ย."
+
+msgid "short_month5"
+msgstr "พ.ค."
+
+msgid "short_month6"
+msgstr "มิ.ย."
+
+msgid "short_month7"
+msgstr "ก.ค."
+
+msgid "short_month8"
+msgstr "ส.ค."
+
+msgid "short_month9"
+msgstr "ก.ย."
+
+msgid "short_month10"
+msgstr "ต.ค."
+
+msgid "short_month11"
+msgstr "พ.ย."
+
+msgid "short_month12"
+msgstr "ธ.ค."
+
+

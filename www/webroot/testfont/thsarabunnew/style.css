@@ -1,0 +1,4 @@
+@import url(fonts/thsarabunnew.css);
+
+*{ margin: 0; padding: 0; }
+body{ font-family: 'THSarabunNew', sans-serif; font-size: 16px; line-height: 1.7em; background: #e1e1e1; }

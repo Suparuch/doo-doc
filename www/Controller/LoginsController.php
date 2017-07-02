@@ -138,7 +138,7 @@ class LoginsController extends AppController {
 					$attempt = ceil($this->Session->read('attempt'));
 					$attempt++;
 					$this->Session->write('attempt', $attempt);
-					if($attemp>3)
+					if($attempt>3)
 						$this->Session->setFlash('Login ผิดเกินจำนวนครั้ง กรุณาติดต่อเจ้าหน้าที่ ' . $attempt);
 					else
 						$this->Session->setFlash('รหัสผู้ใช้ไม่ถูกต้อง !');

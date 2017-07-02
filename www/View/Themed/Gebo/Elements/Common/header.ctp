@@ -27,7 +27,7 @@
 
 						<div class="container-fluid">
 
-                            <img src="/img/bg_header.png"  class='top_head'>
+                            <img src="../img/bg_header.png"  class='top_head'>
 
 						</div>
 					</div>

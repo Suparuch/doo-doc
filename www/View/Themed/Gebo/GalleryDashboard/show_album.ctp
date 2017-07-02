@@ -1,6 +1,6 @@
-<?php 
-    $currentUser = $this->Session->read('AuthUser');
-    echo $this->Html->css('font-awesome.min');
+<?php
+$currentUser = $this->Session->read('AuthUser');
+echo $this->Html->css('font-awesome.min');
 
 
 ?>
@@ -12,32 +12,32 @@
         padding: 1px;
         margin: 0 10px 10px 0;
     }
-    
+
     .thumbnails img:hover {
         border: 4px solid #00ccff;
         cursor: pointer;
     }
-    
+
     .preview img {
         border: 4px solid #444;
         padding: 1px;
         width: 800px;
     }
-    
+
     table.table thead tr td {
         text-align: center;
         background-color: #E1E4CF;
     }
-    
+
     table.table tbody tr td {
         vertical-align: middle;
     }
-    
+
     table.table tbody tr td {
         text-align: center;
         vertical-align: middle;
     }
-    
+
     tr.noBorder td {
         border: 0;
     }
@@ -51,7 +51,7 @@
                     <a href="#"><i class="icon-home"></i></a>
                 </li>
                 <li class="last">
-                qwef
+                    qwef
                     ระบบคลังภาพกองทัพบก
                 </li>
             </ul>
@@ -87,34 +87,34 @@
 <!--CONTENT-->
 <!--List View-->
 <div class="list-view">
-   <table class="table">
-      <thead>
-         <tr>
+    <table class="table">
+        <thead>
+        <tr>
             <td>
-               ลำดับ
+                ลำดับ
             </td>
             <td colspan="2">
-               ชื่อ
+                ชื่อ
             </td>
             <td>
-               คำอธิบาย
+                คำอธิบาย
             </td>
             <td>
-               ขนาดไฟล์
+                ขนาดไฟล์
             </td>
             <td>
             </td>
-         </tr>
-      </thead>
-      <tbody>
-      <?php
+        </tr>
+        </thead>
+        <tbody>
+        <?php
         $rowNo = 1;
-            if(count($pictures) == 0){
-                echo "<tr>
+        if(count($pictures) == 0){
+            echo "<tr>
                     <td colspan='3'>ไม่มีรูปภาพ</td>
                 </tr>";
-                return;
-            }
+            return;
+        }
         foreach($pictures as $picture){
             ?>
             <tr>
@@ -125,10 +125,12 @@
                     <a href="javascript:void(0)" onclick="showModalImage('/<?= $picture[0]['path'] ?>')" data-toggle="modal" data-target="#showImage">
                         <img style='height: 40px' src="/<?= $picture[0]['path'] ?>">
                     </a>
-                    
+
                 </td>
                 <td>
-                    <?= $picture[0]['name'] ?>
+                    <a href="javascript:void(0)" onclick="showModalImage('/<?= $picture[0]['path'] ?>')" data-toggle="modal" data-target="#showImage">
+                        <?= $picture[0]['name'] ?>
+                    </a>
                 </td>
                 <td>
                     <?= $album['album_description'] ?>
@@ -140,63 +142,63 @@
             <?php
             $rowNo++;
         }
-      ?>
-      </tbody>
-   </table>
+        ?>
+        </tbody>
+    </table>
 </div>
 
 <!--Grid View-->
 <div class="grid-view" style="display:none">
-<?php
+    <?php
     $item = 1;
     foreach($pictures as $picture){
         if($item == 3 ){
             $item = 1;
             echo "<br>";
         }
-     ?>
-            <div style="margin: 30px; width:280px; border: 1px solid #DFE3CD; display:inline-block">
-                 <div>
-                    <img src="/<?= $picture[0]['path']?>" style="width: 280px; height: 280px">
-                </div>
-                <div style="height: 50px; vertical-align: middle; background: #F7F8F4">
-                    <div style="float: left;padding: 10px;">
+        ?>
+        <div style="margin: 30px; width:280px; border: 1px solid #DFE3CD; display:inline-block">
+            <div>
+                <img src="/<?= $picture[0]['path']?>" style="width: 280px; height: 280px">
+            </div>
+            <div style="height: 50px; vertical-align: middle; background: #F7F8F4">
+                <div style="float: left;padding: 10px;">
                         <span>
                             <?= $picture[0]['name'] ?> 
                         </span>
-                    </div>
+                </div>
             </div>
-         </div>
-     <?php
+        </div>
+        <?php
     }
-?>
-</div>                                 
+    ?>
+</div>
 
 
 
 <!-- Modal -->
 <div id="showImage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel"></h3>
-  </div>
-  <div class="modal-body" style="text-align: center;">
-    <img id="imageTag" style="height: 100%;width: 100%;">
-  </div>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="myModalLabel"></h3>
+    </div>
+    <div class="modal-body" style="text-align: center;">
+        <img id="imageTag" style="height: 100%;width: 100%;">
+    </div>
 </div>
 
 
 <script>
-    function showModalImage(path){
-        $("#imageTag").attr('src',path);
-    }
-    function showListView() {
-        $(".grid-view").hide("slow");
-        $(".list-view").show(500);
-    }
+  function showModalImage(path){
+    $("#imageTag").attr('src',path);
+  }
+  function showListView() {
+    $(".grid-view").hide("slow");
+    $(".list-view").show(500);
+  }
 
-    function showGridView() {
-        $(".list-view").hide("slow");
-        $(".grid-view").show(500);
-    }
+  function showGridView() {
+    $(".list-view").hide("slow");
+    $(".grid-view").show(500);
+  }
 </script>

@@ -1,6 +1,6 @@
 <?php
-    $currentUser = $this->Session->read('AuthUser');
-    echo $this->Html->css('font-awesome.min');
+$currentUser = $this->Session->read('AuthUser');
+echo $this->Html->css('font-awesome.min');
 ?>
 
 <style type="text/css">
@@ -37,8 +37,8 @@
     }
 
     table, th, td {
-    border: 1px solid #ddd;
-}
+        border: 1px solid #ddd;
+    }
 </style>
 
 <div id="jCrumbs" class="breadCrumb module">
@@ -59,12 +59,12 @@
     <div class="contrainer">
         <div class="row">
             <!--TYPE-->
-           <!-- <div style="margin-left: 40px;">
-                <a href="index" style="color: #65752A"> ไทม์ไลน์</a> |
-                <a href="javascript:void(0)" style="color: #65752A"> คลังรูปภาพ</a> |
-                <a href="video" style="color: #65752A"> คลังวีดีโอ</a> |
-                <a href="document" style="color: #65752A"> คลังเอกสาร</a>
-            </div> -->
+            <!-- <div style="margin-left: 40px;">
+                 <a href="index" style="color: #65752A"> ไทม์ไลน์</a> |
+                 <a href="javascript:void(0)" style="color: #65752A"> คลังรูปภาพ</a> |
+                 <a href="video" style="color: #65752A"> คลังวีดีโอ</a> |
+                 <a href="document" style="color: #65752A"> คลังเอกสาร</a>
+             </div> -->
             <div class="span12" style="text-align: center; margin-top: 20px;">
                 <!--picture-->
                 <section id="#picture">
@@ -89,50 +89,50 @@
                         <div class="list-view">
                             <table class="table">
                                 <thead>
-                                    <tr>
-                                        <td>
-                                            ลำดับ
-                                        </td>
-                                        <td>
-                                            ประเภทไฟล์
-                                        </td>
-                                        <td colspan="2">
-                                            ชื่อ
-                                        </td>
-                                        <td>
-                                            คำอธิบาย
-                                        </td>
-                                        <td>
-                                            วันที่สร้าง
-                                        </td>
-                                        <td>
-                                            ขนาดไฟล์
-                                        </td>
-                                        <td>
-                                        </td>
-                                    </tr>
+                                <tr>
+                                    <td>
+                                        ลำดับ
+                                    </td>
+                                    <td>
+                                        ประเภทไฟล์
+                                    </td>
+                                    <td colspan="2">
+                                        ชื่อ
+                                    </td>
+                                    <td>
+                                        คำอธิบาย
+                                    </td>
+                                    <td>
+                                        วันที่สร้าง
+                                    </td>
+                                    <td>
+                                        ขนาดไฟล์
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                        if(count($picture)==0 && count($albums) == 0){
-                            echo "
+                                <?php
+                                if(count($picture)==0 && count($albums) == 0){
+                                    echo "
                               <tr>
                                 <td colspan='5' style='text-align:center;'><h3>ไม่พบไฟล์</h3></td>
                               </tr>
                             ";
-                        }
-                        $No = 1;
-                        foreach($picture as $row){
-                          $date = strtotime($row[0]['created']);
-                          $date = date("d-m-Y", $date);
-                          $size = number_format($row[0]['size']/1000000, 2);
-                                echo "
+                                }
+                                $No = 1;
+                                foreach($picture as $row){
+                                    $date = strtotime($row[0]['created']);
+                                    $date = date("d-m-Y", $date);
+                                    $size = number_format($row[0]['size']/1000000, 2);
+                                    echo "
                                     <tr>
-                                    <td>
+                                    <td style=\"text-align: center !important;\">
                                         $No
                                     </td>
                                     <td>
-                                        <i class='fa fa-camera fa-2x'></i>
+                                        <img src='../img/icon/photo.png' style=\"width:40px; height:40px;\">
                                     </td>
                                     <td>
                                         <a href='javascript:void(0)' onclick='showModalImage(\"/". $row[0]['path']."\")' data-toggle='modal' data-target='#showImage'>
@@ -158,42 +158,42 @@
                                     </td>
                                     </tr>
                                 ";
-                          $No++;
-                        }
-                        foreach($albums as $album){
-                            $albumDate = strtotime($album[0]['created']);
-                            $albumDate = date("d-m-Y", $albumDate);
-                            ?>
-                             <tr>
-                                    <td style="text-align: center !important;">
-                                        <?= $No ?>
-                                    </td>
-                                    <td>
-                                        <img src="../img/icon/album.png" style="width:40px; height:40px;">
-                                    </td>
-                                    <td colspan="2">
-                                        <a href="showAlbum?id=<?= $album[0]['id']?>" > <?= $album[0]['album_name'] ?> </a>
-                                    </td>
-                                    <td>
-                                        <?= $album[0]['album_description'] ?>
-                                    </td>
-                                    <td>
-                                        <?= $albumDate ?>
-                                    </td>
-                                    <td>
+                                    $No++;
+                                }
+                                foreach($albums as $album){
+                                    $albumDate = strtotime($album[0]['created']);
+                                    $albumDate = date("d-m-Y", $albumDate);
+                                    ?>
+                                    <tr>
+                                        <td style="text-align: center !important;">
+                                            <?= $No ?>
+                                        </td>
+                                        <td>
+                                            <img src="../img/icon/album.png" style="width:40px; height:40px;">
+                                        </td>
+                                        <td colspan="2">
+                                            <a href="showAlbum?id=<?= $album[0]['id']?>" > <?= $album[0]['album_name'] ?> </a>
+                                        </td>
+                                        <td>
+                                            <?= $album[0]['album_description'] ?>
+                                        </td>
+                                        <td>
+                                            <?= $albumDate ?>
+                                        </td>
+                                        <td>
 
-                                    </td>
+                                        </td>
 
-                                    <td>
-                                        <a href='edit_album?id=<?= $album[0]['id'] ?>'><i class="fa fa-pencil"></i></a>
-                                        <a href='javascript:void(0)' onclick='delAlbum("<?= $album[0]['id'] ?>","<?= $album[0]['post_id'] ?>")'><i class='fa fa-trash'></i> </a>
-                                    </td>
-                                </tr>
-                            <?php
-                            $No++;
-                        }
+                                        <td>
+                                            <a href='edit_album?id=<?= $album[0]['id'] ?>'><i class="fa fa-pencil"></i></a>
+                                            <a href='javascript:void(0)' onclick='delAlbum("<?= $album[0]['id'] ?>","<?= $album[0]['post_id'] ?>")'><i class='fa fa-trash'></i> </a>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                    $No++;
+                                }
 
-                    ?>
+                                ?>
                                 </tbody>
                             </table>
                         </div>
@@ -201,30 +201,30 @@
                         <div class="grid-view" hidden>
                             <table class="table" style="">
                                 <thead>
-                                    <tr>
-                                        <td colspan="3" style="height: 20px;border-bottom: 1px gray solid;"></td>
-                                    </tr>
+                                <tr>
+                                    <td colspan="3" style="height: 20px;border-bottom: 1px gray solid;"></td>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    <?php
-                                        if(count($picture)==0){
-                                            echo "
+                                <?php
+                                if(count($picture)==0){
+                                    echo "
                                             <tr>
                                                 <td colspan='5' style='text-align:center;'><h3>ไม่พบไฟล์</h3></td>
                                             </tr>
                                             ";
-                                        }
-                                            $no=1;
-                                        foreach($picture as $row){
-                                            if($no == 1){
-                                                echo "<tr clas ='noBorder'>";
-                                            }
-                                            ?>
+                                }
+                                $no=1;
+                                foreach($picture as $row){
+                                    if($no == 1){
+                                        echo "<tr clas ='noBorder'>";
+                                    }
+                                    ?>
                                     <td>
                                         <div style="margin: 30px; width:280px; border: 1px solid #DFE3CD">
                                             <div>
                                                 <a href="javascript:void(0)" onclick="showModalImage('/<?= $row[0]['path']?>')" data-toggle="modal" data-target="#showImage">
-                                                <img src="/<?= $row[0]['path']?>" style="width: 280px; height: 280px">
+                                                    <img src="/<?= $row[0]['path']?>" style="width: 280px; height: 280px">
                                                 </a>
                                             </div>
                                             <div style="height: 50px; vertical-align: middle; background: #F7F8F4">
@@ -240,47 +240,47 @@
                                         </div>
                                     </td>
                                     <?php
-                                            $no++;
-                                            if($no == 4 ){
-                                                echo "</tr>";
-                                                $no=1;
-                                            }
-                                        }
-                                        foreach ($albums as $album){
-                                            if($no == 1){
-                                                echo "<tr clas ='noBorder'>";
-                                            }
-                                            ?>
-                                            <td>
-                                                <div style="margin: 30px; width:280px; border: 1px solid #DFE3CD">
-                                                    <div>
-                                                        <i class="fa fa-file-image-o" style="font-size: 280px;"></i>
-                                                    </div>
-                                                    <div style="height: 50px; vertical-align: middle; background: #F7F8F4">
-                                                        <div style="float: left;padding: 10px;">
+                                    $no++;
+                                    if($no == 4 ){
+                                        echo "</tr>";
+                                        $no=1;
+                                    }
+                                }
+                                foreach ($albums as $album){
+                                    if($no == 1){
+                                        echo "<tr clas ='noBorder'>";
+                                    }
+                                    ?>
+                                    <td>
+                                        <div style="margin: 30px; width:280px; border: 1px solid #DFE3CD">
+                                            <div>
+                                                <i class="fa fa-file-image-o" style="font-size: 280px;"></i>
+                                            </div>
+                                            <div style="height: 50px; vertical-align: middle; background: #F7F8F4">
+                                                <div style="float: left;padding: 10px;">
                                                             <span>
                                                                 <a href="showAlbum?id=<?= $album[0]['id']?>">
                                                                     <?= $album[0]['album_name'] ?>
                                                                 </a>
                                                             </span>
-                                                        </div>
-                                                        <div style="float: right;padding: 10px;">
-                                                            <a href="javascipt:void(0)" onclick="del('<?= $row[0]['id']?>','<?= $row[0]['post_id']?>')">
-                                                                <i style="text-align: right" class="fa fa-trash fa-2x"></i>
-                                                            </a>
-                                                        </div>
-                                                    </div>
                                                 </div>
-                                            </td>
+                                                <div style="float: right;padding: 10px;">
+                                                    <a href="javascipt:void(0)" onclick="del('<?= $row[0]['id']?>','<?= $row[0]['post_id']?>')">
+                                                        <i style="text-align: right" class="fa fa-trash fa-2x"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
 
-                                            <?php
-                                            $no++;
-                                            if($no == 4 ){
-                                                echo "</tr>";
-                                                $no=1;
-                                            }
-                                        }
-                                    ?>
+                                    <?php
+                                    $no++;
+                                    if($no == 4 ){
+                                        echo "</tr>";
+                                        $no=1;
+                                    }
+                                }
+                                ?>
 
                                 </tbody>
                             </table>
@@ -297,16 +297,16 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Upload Picture</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body" style="text-align: center;">
                     <?= $this->Form->create($uploadData, ['type' => 'file']); ?>
-                        <?php echo $this->Form->input('file', ['type' => 'file', 'class' => 'form-control']); ?>
-                        <?php echo $this->Form->button(__('Upload File'), ['type'=>'submit', 'class' => 'form-control btn btn-primary']); ?>
-                        <?php echo $this->Form->end(); ?>
+                    <?php echo $this->Form->input('file', ['type' => 'file', 'class' => 'form-control']); ?>
+                    <?php echo $this->Form->button(__('Upload File'), ['type'=>'submit', 'class' => 'form-control btn btn-primary']); ?>
+                    <?php echo $this->Form->end(); ?>
 
-                        </form>
+                    </form>
                 </div>
                 <div class="modal-footer">
                     <button type="reset" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -323,106 +323,106 @@
 
 <!-- Modal -->
 <div id="showImage" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-  </div>
-  <div class="modal-body" style="text-align: center;">
-    <img id="imageTag" style="height: 100%;width: 100%;">
-  </div>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    </div>
+    <div class="modal-body" style="text-align: center;">
+        <img id="imageTag" style="height: 100%;width: 100%;">
+    </div>
 </div>
 
 
 <!--Edit Modal -->
 <div id="editModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-<div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-  </div>
-  <?= $this->Form->create(false, array('url' => array('controller' => 'GalleryDashboard', 'action' => 'editImageDetail'))) ?>
-  <div class="modal-body">
-    <input type="hidden" id="editId" name="id">
-    <p>
-        คำอธิบาย :
-        <input type="text" name="description" value="" id="editDescription">
-    </p>
-    <p>
-        สถานที่ :
-        <input type="text" name="location" value="" id="editLocation">
-    </p>
-  </div>
-  <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary">Save changes</button>
-  </div>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    </div>
+    <?= $this->Form->create(false, array('url' => array('controller' => 'GalleryDashboard', 'action' => 'editImageDetail'))) ?>
+    <div class="modal-body">
+        <input type="hidden" id="editId" name="id">
+        <p>
+            คำอธิบาย :
+            <input type="text" name="description" value="" id="editDescription">
+        </p>
+        <p>
+            สถานที่ :
+            <input type="text" name="location" value="" id="editLocation">
+        </p>
+    </div>
+    <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button class="btn btn-primary">Save changes</button>
+    </div>
 </div>
 <?= $this->Form->end();?>
 
 
 <script>
-    function editImage(id){
-        console.log(id);
-        $.ajax({
-            url: "editPicture",
-            method:'post',
-            dataType: 'json',
-            data:{
-                id:id
-            },
-            success: function(data){
-                $("#editDescription").val(data.description);
-                $("#editLocation").val(data.location);
-                $("#editId").val(data.id);
-            }
+  function editImage(id){
+    console.log(id);
+    $.ajax({
+      url: "editPicture",
+      method:'post',
+      dataType: 'json',
+      data:{
+        id:id
+      },
+      success: function(data){
+        $("#editDescription").val(data.description);
+        $("#editLocation").val(data.location);
+        $("#editId").val(data.id);
+      }
 
-        });
-    }
-    function showModalImage(path){
-        $("#imageTag").attr('src',path);
-    }
-    function showListView() {
-        $(".grid-view").hide("slow");
-        $(".list-view").show(500);
-    }
+    });
+  }
+  function showModalImage(path){
+    $("#imageTag").attr('src',path);
+  }
+  function showListView() {
+    $(".grid-view").hide("slow");
+    $(".list-view").show(500);
+  }
 
-    function showGridView() {
-        $(".list-view").hide("slow");
-        $(".grid-view").show(500);
-    }
+  function showGridView() {
+    $(".list-view").hide("slow");
+    $(".grid-view").show(500);
+  }
 
-    function del(id, post_id){
-        if(confirm("คุณต้องการลบรุปภาพหรือไม่")){
-            $.ajax({
-                method: 'post',
-                url: 'deletePicture',
-                data: {
-                    id: id,
-                    post_id: post_id
-                },
-                success: function(data){
-                    location.reload();
-                }
-            });
+  function del(id, post_id){
+    if(confirm("คุณต้องการลบรุปภาพหรือไม่")){
+      $.ajax({
+        method: 'post',
+        url: 'deletePicture',
+        data: {
+          id: id,
+          post_id: post_id
+        },
+        success: function(data){
+          location.reload();
         }
-        else{
-            return;
-        }
+      });
     }
+    else{
+      return;
+    }
+  }
 
-    function delAlbum(albumID, postID){
-        if(confirm("คุณต้องการลบอัลบั้มหรือไม่")){
-            $.ajax({
-                method: 'post',
-                url: 'deleteAlbum',
-                data: {
-                    albumID: albumID,
-                    postID: postID
-                },
-                success: function(data){
-                    location.reload();
-                }
-            });
+  function delAlbum(albumID, postID){
+    if(confirm("คุณต้องการลบอัลบั้มหรือไม่")){
+      $.ajax({
+        method: 'post',
+        url: 'deleteAlbum',
+        data: {
+          albumID: albumID,
+          postID: postID
+        },
+        success: function(data){
+          location.reload();
         }
-        else{
-            return;
-        }
+      });
     }
+    else{
+      return;
+    }
+  }
 </script>

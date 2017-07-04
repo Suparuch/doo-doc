@@ -133,8 +133,7 @@ class TrainController extends AppController
     }
     public function ajaxEdit_person(){
         $this->autoRender = false;
-        
-        
+
         if($data = $this->request->data){
             $data['rank'] = $data['TrainPerson']['rank'];
             if($this->TrainPerson->save($data)){

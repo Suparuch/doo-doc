@@ -311,7 +311,9 @@
                     <?=$row[ '0'][ 'train_time'] ?>
                 </td>
                 <td>
-                    <?php $sqldate=strtotime( $row[ '0'][ 'train_date']); $data=date( "d-m-Y", $sqldate); echo $data; ?>
+                    <?php if(!empty($row['0']['train_date']))
+                        echo $this->DateFormat($row['0']['train_date']);
+                    ?>
                 </td>
                 <?php if($row[ '0'][ 'result']=="0" ){ echo "<td></td><td>&#10003</td>"; } else{ echo "<td>&#10003</td><td></td>"; } ?>
                 <td>
@@ -486,7 +488,7 @@
                                                 <input type="text" name="TrainPerson[time]" id="editTime" class="span1">
                                             </td>
                                             <td>
-                                                <input type="text" class="date" id="editDate" name="TrainPerson[date]" class="span1">
+                                               <input type="text" class="date" id="editDate" name="TrainPerson[date]" class="span1">
                                             </td>
                                             <td>
                                                 <input type="radio" name="TrainPerson[result]" id="editResult1" value="1">
@@ -567,7 +569,14 @@
                     
             } );
             $(".date").focus(function() {
-                $('.date').datepicker();
+                $('.date').datepicker({
+                    dateFormat: "yy-mm-dd", //กำหนดรูปแบบวันที่ ปี - เดือน - วัน
+                    changeMonth: true, // กำหนดให้เปลี่ยนเดือนได้
+                    changeYear:true, //กำหนดให้เปลี่ยนปีได้
+                    language: "th",
+                    dayNamesMin: [ "อา", "จ", "อ", "พ", "พฤ", "ศ", "ส" ],//กำหนดชื่อย่อของวัน เป็น ภาษาไทย
+                    monthNamesShort: [ "มกราคม", "กุมภาพันธ์", "มีนาคม", "เมษายน", "พฤษภาคม", "มิถุนายน", "กรกฎาคม", "สิงหาคม", "กันยายน", "ตุลาคม", "พฤศจิกายน", "ธันวาคม" ],
+                });
             });
             $(".date").blur(function() {
                 $('.date').datepicker('hide');

@@ -113,7 +113,7 @@
 
 <div>
     <a href="#" style="color:green;">ข้อมูลแบบบันทึกผลเป็นบุคคล</a>
-    <a href="/Train/groupTrain" style="color:green;">ข้อมูลแบบบันทึกผลเป็นหน่วย</a>
+    <a href="/doo-doc/www/Train/groupTrain" style="color:green;">ข้อมูลแบบบันทึกผลเป็นหน่วย</a>
 </div>
 <div style="text-align: center">
     <p>

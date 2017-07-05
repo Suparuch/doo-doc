@@ -30,7 +30,7 @@
             'type' => 'file',
             'url'=> array('controller'=>'GalleryDashboard','action'=>'uploadPictureAlbum')));
     ?>
-    <div style="border: 1px solid #DBDBDB; width: 700px">
+    <div style="border: 1px solid #DBDBDB;">
         <div style="padding: 25px; border: 1px solid #DBDBDB; background-color: #EFF0E8">
             <h3 style="display: inline-block">สร้างอัลบั้มรูปภาพ</h3>
             <div style="display: inline-block; margin-left: 60%">

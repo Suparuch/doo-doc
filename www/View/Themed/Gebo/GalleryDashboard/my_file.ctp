@@ -102,7 +102,7 @@ echo $this->Html->css('font-awesome.min');
                                     <td>
                                         คำอธิบาย
                                     </td>
-                                    <td>
+                                    <td width="8%">
                                         วันที่สร้าง
                                     </td>
                                     <td>

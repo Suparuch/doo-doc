@@ -74,18 +74,14 @@
     }
 
 
-    select = 0;
+    var select = 0;
 
     function selectAll() {
         select++;
-        if (select == 2) {
-            select = 0;
-        }
-        if (select == 1) {
-            $('input:checkbox.checkboxID').attr("checked", "checked");
-        }
-        if (select == 0) {
+        if (select%2 == 0) {
             $('input:checkbox.checkboxID').attr("checked", null);
+        } else {
+            $('input:checkbox.checkboxID').attr("checked", "checked");
         }
     }
 
@@ -294,14 +290,14 @@
                 </td>
                 <td>
                     <?php
-                     $course = $row[ '0'][ 'course'] ;
-                     if($course == 1){echo "การฝึกทหารใหม่";}
-                     elseif($course == 2){echo "การฝึกทหารใหม่เฉพาะเจ้าหน้าที่";}
-                     elseif($course == 3){echo "การฝึกครูทหารใหม่";}
-                     elseif($course == 4){echo "การฝึกสิบตรีกองประจำการ";}
-                     elseif($course == 5){echo "การฝึกตามหน้าที่";}
-                     elseif($course == 6){echo "ตาม ชกท.ของเหล่าต่างๆ";}
-                     elseif($course == 7){echo "การฝึกบิน ฯลฯ";}
+                        $course = $row[ '0'][ 'course'] ;
+                        if($course == 1){echo "การฝึกทหารใหม่";}
+                        elseif($course == 2){echo "การฝึกทหารใหม่เฉพาะเจ้าหน้าที่";}
+                        elseif($course == 3){echo "การฝึกครูทหารใหม่";}
+                        elseif($course == 4){echo "การฝึกสิบตรีกองประจำการ";}
+                        elseif($course == 5){echo "การฝึกตามหน้าที่";}
+                        elseif($course == 6){echo "ตาม ชกท.ของเหล่าต่างๆ";}
+                        elseif($course == 7){echo "การฝึกบิน ฯลฯ";}
                     ?>
                 </td>
                 <td>

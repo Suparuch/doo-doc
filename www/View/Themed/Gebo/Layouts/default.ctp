@@ -117,7 +117,8 @@
 	
 	echo $this->Html->script('forms/jquery.inputmask.min');
 	echo $this->Html->script('forms/jquery.counter.min');
-	// echo $this->Html->script('lib/datepicker/bootstrap-datepicker.min');
+	
+	//datepicker
 	echo $this->Html->script('lib/datepicker/bootstrap-datepicker');
 	echo $this->Html->script('lib/datepicker/bootstrap-datepicker-thai');
 	echo $this->Html->script('lib/datepicker/locales/bootstrap-datepicker.th');

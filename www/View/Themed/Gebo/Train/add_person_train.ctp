@@ -107,26 +107,26 @@
         <tbody>
             <tr>
                 <td>1</td>
-                <td><input type="text" class="span1" name="specific1"></td>
-                <td><input type="text" name="time1" class="span1"></td>
-                <td><input type="text" class="date" name="date1" class="span1"></td>
+                <td><input type="text" class="span1" name="specific1" required></td>
+                <td><input type="text" name="time1" class="span1" required></td>
+                <td><input type="text" class="date" name="date1" class="span1" required></td>
                 <td>
-                    <input type="radio" name="result1" value="1">
+                    <input type="radio" name="result1" value="1" required>
                 </td>
                 <td>
-                    <input type="radio" name="result1" value="0">
+                    <input type="radio" name="result1" value="0" required>
                 </td>
                 <td>
-                    <input type="text" name="teacher1" class="span2">
+                    <input type="text" name="teacher1" class="span2" required>
                 </td>
                 <td>
-                    <input type="text" name="head1" class="span2">
+                    <input type="text" name="head1" class="span2" required>
                 </td>
                 <td>
-                    <input type="text" name="problem1" class="span2">
+                    <input type="text" name="problem1" class="span2" required>
                 </td>
                 <td>
-                    <input type="text" name="note1" class="span2">
+                    <input type="text" name="note1" class="span2" required>
                 </td>
                 <td></td>
             </tr>

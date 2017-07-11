@@ -79,9 +79,9 @@
     function selectAll() {
         select++;
         if (select%2 == 0) {
-            $('input:checkbox.checkboxID').attr("checked", null);
+            $('input:checkbox.checkboxID').prop("checked", false);
         } else {
-            $('input:checkbox.checkboxID').attr("checked", "checked");
+            $('input:checkbox.checkboxID').prop("checked", true);
         }
     }
 

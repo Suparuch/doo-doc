@@ -1,9 +1,10 @@
 <?php
 App::uses('AppController', 'Controller');
-
+App::uses('DateLib', 'Lib/Utility');
 
 class TrainController extends AppController
 {
+
     public $name = "Train";
     public $uses = array("TrainPerson","TrainUnit", "TrainResult","TrainSchedule","Rank","Position","Unit");
     function beforeFilter(){
@@ -122,20 +123,24 @@ class TrainController extends AppController
         }
     }
     public function edit_person(){
+        $dateLib = new DateLib();
         $this->autoRender = false;
         if($this->request->is('post')){
             $data = $this->request->data['id'];
             if($data){
                 $row = $this->TrainPerson->query("SELECT * FROM train_persons WHERE id = $data ");
+                $row[0][0]['train_date'] = $dateLib->convertADToBE($row[0][0]['train_date']);
                 echo json_encode($row);
             }
         }
     }
     public function ajaxEdit_person(){
+        $dateLib = new DateLib();
         $this->autoRender = false;
 
         if($data = $this->request->data){
             $data['rank'] = $data['TrainPerson']['rank'];
+            $data['TrainPerson']['train_date'] =  $dateLib->convertBEToAD($data['TrainPerson']['train_date']);
             if($this->TrainPerson->save($data)){
                 $this->redirect('index');
             }
@@ -434,7 +439,6 @@ class TrainController extends AppController
         }
     }
     public function delete_result(){
-
         $this->autoRender = false;
         if($this->request->is('post')){
             if($data = $this->request->data){
@@ -449,7 +453,7 @@ class TrainController extends AppController
                 }       
         }
         }
-         
         $this->redirect('reportResult');
     }
+
 }

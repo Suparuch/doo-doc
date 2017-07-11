@@ -319,11 +319,7 @@
     </div>
 </div>
 <script>
-  $(".date").focus(function() {
-    $('.date').datepicker();
-  });
-  $(".date").blur(function() {
-    $('.date').datepicker('hide');
-  });
-
+    $(".date").focus(function() {
+        $('.date').datepicker();
+    });
 </script>

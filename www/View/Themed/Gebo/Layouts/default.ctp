@@ -117,7 +117,11 @@
 	
 	echo $this->Html->script('forms/jquery.inputmask.min');
 	echo $this->Html->script('forms/jquery.counter.min');
-	echo $this->Html->script('lib/datepicker/bootstrap-datepicker.min');
+	
+	//datepicker
+	echo $this->Html->script('lib/datepicker/bootstrap-datepicker');
+	echo $this->Html->script('lib/datepicker/bootstrap-datepicker-thai');
+	echo $this->Html->script('lib/datepicker/locales/bootstrap-datepicker.th');
 	echo $this->Html->script('lib/datepicker/bootstrap-timepicker.min');
 	//echo $this->Html->script('lib/uniform/jquery.uniform.min');
 
@@ -206,7 +210,10 @@
 		});
 	</script>
 	<script>
-	$('.date').datepicker();
+	$('.date').datepicker({
+		format: "dd/mm/yyyy",
+		language: "th-th",
+	});
 	</script>
 	<?php //pr($this->element('sql_dump')); ?>
         

@@ -481,10 +481,10 @@
                                                 <input type="text" class="span1" id="editSpecific" name="TrainPerson[specific]">
                                             </td>
                                             <td>
-                                                <input type="text" name="TrainPerson[time]" id="editTime" class="span1">
+                                                <input type="text" name="TrainPerson[train_time]" id="editTime" class="span1">
                                             </td>
                                             <td>
-                                               <input type="text" class="date" id="editDate" name="TrainPerson[date]" class="span1">
+                                               <input type="text" class="date" id="editDate" name="TrainPerson[train_date]" class="span1">
                                             </td>
                                             <td>
                                                 <input type="radio" name="TrainPerson[result]" id="editResult1" value="1">

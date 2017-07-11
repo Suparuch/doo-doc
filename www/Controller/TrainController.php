@@ -79,6 +79,7 @@ class TrainController extends AppController
     }
 
     public function addPersonTrain(){
+        $dateLib = new DateLib();
         //Dropdown Rank
         $conditions2 = array('conditions' => array('deleted' => 'N'), 'order' => array('order_sort' => 'asc'), 'fields' => array('name','short_name'));
         $Ranks = $this->Rank->find('list', $conditions2);
@@ -108,7 +109,7 @@ class TrainController extends AppController
                 $table['subject'] = $data['subject'];
                 $table['specific'] = $data['specific'.$i];
                 $table['train_time'] = $data['time'.$i];
-                $table['train_date'] = $data['date'.$i];
+                $table['train_date'] = $dateLib->convertBEToAD($data['date'.$i]);
                 $table['result'] = $data['result'.$i];
                 $table['teacher'] = $data['teacher'.$i];
                 $table['head'] = $data['head'.$i];

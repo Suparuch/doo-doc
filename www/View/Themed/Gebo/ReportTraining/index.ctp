@@ -299,11 +299,9 @@
                 สถานที่ :
                 <?= $row[0]['basetrain']."<br>" ?> ตั้งแต่ :
                 <?php
-                $fromdatetrain = strtotime( $row[0]['fromdatebase']);
-                $fromdatetrain = $this->DateFormat->formatDateThai($fromdatetrain);
+                $fromdatetrain = $this->DateFormat->formatDateThai($row[0]['fromdatebase']);
                 echo $fromdatetrain."<br> ถึง ";
-                $todatetrain = strtotime( $row[0]['todatebase']);
-                $todatetrain = $this->DateFormat->formatDateThai($todatetrain);
+                $todatetrain = $this->DateFormat->formatDateThai($row[0]['todatebase']);
                 echo $todatetrain;
                 echo "<br>จำนวนวัน : ".$row[0]['countdatebase'];
                 ?>
@@ -312,11 +310,9 @@
                 สถานที่ :
                 <?= $row[0]['outbaselocation']."<br>" ?> ตั้งแต่ :
                 <?php
-                $fromdatetrain = strtotime( $row[0]['fromdateoutbase']);
-                $fromdatetrain = $this->DateFormat->formatDateThai($fromdatetrain);
+                $fromdatetrain = $this->DateFormat->formatDateThai($row[0]['fromdateoutbase']);
                 echo $fromdatetrain."<br> ถึง ";
-                $todatetrain = strtotime( $row[0]['todateoutbase']);
-                $todatetrain = $this->DateFormat->formatDateThai($todatetrain);
+                $todatetrain = $this->DateFormat->formatDateThai($row[0]['todateoutbase']);
                 echo $todatetrain;
                 echo "<br> จำนวนวัน : ".$row[0]['countdayoutbase'];
                 ?>
@@ -325,11 +321,9 @@
                 สถานที่ :
                 <?= $row[0]['resultlocation']."<br>" ?> ตั้งแต่ :
                 <?php
-                $fromdatetrain = strtotime( $row[0]['fromdateresult']);
-                $fromdatetrain = $this->DateFormat->formatDateThai($fromdatetrain);
+                $fromdatetrain = $this->DateFormat->formatDateThai($row[0]['fromdateresult']);
                 echo $fromdatetrain."<br> ถึง ";
-                $todatetrain = strtotime( $row[0]['todateresult']);
-                $todatetrain = $this->DateFormat->formatDateThai($todatetrain);
+                $todatetrain = $this->DateFormat->formatDateThai($row[0]['todateresult']);
                 echo $todatetrain;
                 echo "<br> จำนวนวัน : ".$row[0]['countdayresult'];
                 ?>
@@ -751,8 +745,5 @@
 <script>
   $(".date").focus(function() {
     $('.date').datepicker();
-  });
-  $(".date").blur(function() {
-    $('.date').datepicker('hide');
   });
 </script>

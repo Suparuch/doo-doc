@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('DateLib', 'Lib/Utility');
 
 class ReportTrainingController extends AppController {
 	public $name = "ReportTraining";
@@ -113,13 +114,22 @@ class ReportTrainingController extends AppController {
 
     }
     public function add(){
+        $dateLib = new DateLib();
         $data = $this->request->data;
-         if($data){
+        if($data){
             $this->ReportTrain->create();
+            $data['fromdatetrain'] = $dateLib->convertBEToAD($data['fromdatetrain']);
+            $data['todatetrain'] = $dateLib->convertBEToAD($data['todatetrain']);
+            $data['fromdatebase'] = $dateLib->convertBEToAD($data['fromdatebase']);
+            $data['todatebase'] = $dateLib->convertBEToAD($data['todatebase']);
+            $data['fromdateoutbase'] = $dateLib->convertBEToAD($data['fromdateoutbase']);
+            $data['todateoutbase'] = $dateLib->convertBEToAD($data['todateoutbase']);
+            $data['fromdateresult'] = $dateLib->convertBEToAD($data['fromdateresult']);
+            $data['todateresult'] = $dateLib->convertBEToAD($data['todateresult']);
             if($this->ReportTrain->save($data)){
                 $this->redirect('index');
             }
-         }
+        }
     }
     public function edit_data(){
         $this->autoRender = false;

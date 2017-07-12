@@ -32,7 +32,7 @@
 		ประเมินค่าการจัดการฝึก
 	</h3>
 </div>
-<?= $this-Form->create(); ?>
+<? $this->Form->create(); ?>
 <div>
 	<label>การบรรลุวัตถุประสงค์การฝึก</label>
 	<div>

@@ -18,7 +18,8 @@ class TrainController extends AppController
         }
     }
     public function index(){
-        
+        $dateLib = new DateLib();
+
         //Dropdown Rank
         $conditions2 = array('conditions' => array('deleted' => 'N'), 'order' => array('order_sort' => 'asc'), 'fields' => array('name','short_name'));
         $Ranks = $this->Rank->find('list', $conditions2);
@@ -51,17 +52,17 @@ class TrainController extends AppController
                 $belongto = $data['belongto'];
                 $course = $data['course'];
                 $time = $data['train_time'];
-                $date =  $data['train_date'];
+                $date = $dateLib->convertBEToAD($data['train_date']);
                 if(empty($date)){
                     $date = "NULL";
                 }
                 else{
-                    $date = "'$date'";
+                    $date = $date;
                 }
                 $subject = $data['subject'];
                 $data = $this->TrainPerson->query("SELECT * FROM train_persons 
                 WHERE first_name like '$firstname' OR last_name like '$lastname' OR position like '$position' OR expert like '$expert'
-                OR belongto like '$belongto' OR course like '$course'  OR train_time like '$time' OR train_date = $date AND 
+                OR belongto like '$belongto' OR course like '$course'  OR train_time like '$time' OR train_date = '$date' AND 
                 subject like '$subject' AND rank like '$rank' ORDER BY id DESC" );
             }
         }

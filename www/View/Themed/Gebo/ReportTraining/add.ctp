@@ -400,7 +400,4 @@
             $(".date").focus(function() {
                 $('.date').datepicker();
             });
-            $(".date").blur(function() {
-                $('.date').datepicker('hide');
-            });
         </script>

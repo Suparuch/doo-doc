@@ -63,12 +63,10 @@
 
     function selectAll() {
         select++;
-        if (select == 1) {
-            $("input:checkbox.checkSelect").attr("checked", "checked");
-            select = 2;
+        if (select%2 != 0) {
+            $("input:checkbox.checkSelect").prop("checked", true);
         } else {
-            $("input:checkbox.checkSelect").attr("checked", null);
-            select = 0;
+            $("input:checkbox.checkSelect").prop("checked", false);
         }
     }
 
@@ -304,9 +302,7 @@
                 </td>
                 <td>
                     <?php
-                            $sqldate = strtotime( $row['0']['train_date']);
-                            $data = date("d-m-Y", $sqldate);
-                            echo $data;
+                        echo $this->DateFormat->formatDateThai($row['0']['train_date']);
                      ?>
                 </td>
                 <?php if($row[0]['result']=='1') echo "<td> &#10003</td><td></td>";
@@ -497,9 +493,7 @@
 </div>
 
 <script>
-    $(document).read(function() {
         $(".date").focus(function() {
             $('.date').datepicker();
         });
-    });
 </script>

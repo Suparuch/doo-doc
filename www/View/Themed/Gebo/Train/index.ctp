@@ -122,7 +122,7 @@
 
 <div class="container">
     <?php echo $this->Form->create(); ?>
-    <div class="">
+    <div>
         <div class="control-group">
             <div class="span1">
                     <label style="display: inline;">ยศ</label>
@@ -139,82 +139,95 @@
                         ?>
                     </div>
             </div>
-            <div class="span3">
+            <div class="span2">
                 <label class="control-label" style="display: inline-block">ชื่อ :</label>
                 <div class="controls" style="display: inline-block">
-                    <input type="text" name="first_name">
+                    <input type="text" class="input-small" name="first_name">
                 </div>
             </div>
-            <div class="span3">
+            <div class="span2">
                 <label class="control-label" style="display: inline-block">นามสกุล :</label>
                 <div class="controls" style="display: inline-block">
-                    <input type="text" name="last_name" style="width: 100%">
+                    <input type="text" class="input-small" name="last_name">
                 </div>
             </div>
             
-            <div class="span3">
+            <div class="span2">
                 <label class="control-label" style="display: inline-block">ตำแหน่ง :</label>
                 <div class="control" style="display: inline-block">
-                    <input type="text" name="position" id="position" style="width: 100px">
+                    <input type="text" class="input-small" name="position" id="position">
+                </div>
+            </div>
+
+            <div class="span2">
+                <label class="control-label" style="display: inline-block">สังกัด :</label>
+                <div class="control" style="display: inline-block">
+                    <input type="text" class="input-small" name="belongto">
+                </div>
+            </div>
+
+            <div class="span2">
+                <label class="control-label" style="display: inline-block">ชกท :</label>
+                <div class="control" style="display: inline-block">
+                    <input type="text" class="input-small" name="expert">
+                </div>
+                <!-- <label style="display: inline;">ชกท</label>
+                <div style="display: inline;">
+                    <input type="text" class="input-small" name="expert" id="">
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="control-group">
+            <div class="span3">
+                <label class="control-label" style="display: inline-block;">การฝึก/หลักสูตร :</label>
+                <div class="control" style="display: inline-block;">
+                    <select name="course" style="width: 150px" id="">
+                        <option value=" ">หลักสูตร</option>
+                        <option value="1">การฝึกทหารใหม่</option>
+                        <option value="2">การฝึกทหารใหม่เฉพาะเจ้าหน้าที่</option>
+                        <option value="3">การฝึกครูทหารใหม่</option>
+                        <option value="4">การฝึกสิบตรีกองประจำการ</option>
+                        <option value="5">การฝึกตามหน้าที่</option>
+                        <option value="6">ตาม ชกท.ของเหล่าต่างๆ</option>
+                        <option value="7">การฝึกบิน ฯลฯ</option>
+                        <option value="-">อื่นๆ</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="span2">
+                <label class="control-label" style="display: inline-block;">ครั้งที่ :</label>
+                <div class="control" style="display: inline-block;">
+                    <input type="text" class="input-mini" name="train_time">
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="span2">
+                <label class="control-label" style="display: inline-block;">ว-ด-ป :</label>
+                <div class="control" style="display: inline-block;">
+                    <input type="text" name="train_date" class="date input-small">
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="span4">
+                <label class="control-label" style="display: inline-block;">เรื่อง/วิชาที่ทำการฝึก :</label>
+                <div style="display: inline-block;">
+                    <input type="text" class="input-medium" name="subject">
                 </div>
             </div>
         </div>
     </div>
-    <div class="control-group">
-        <div class="span3">
-            <label class="control-label" style="display: inline-block">สังกัด :</label>
-            <div class="control" style="display: inline-block">
-                <input type="text" name="belongto" style="width: 100px">
+    <div>
+        <div class="control-group">
+            <div class="span10 text-center">
+                <button type="submit" class="btn btn-primary">ค้นหา</button>
+                <button type="reset" class="btn btn-primary">ยกเลิก</button>
             </div>
-        </div>
-        <div class="span3">
-            <label style="display: inline;">ชกท</label>
-            <div style="display: inline;">
-                <input type="text" class="span2" name="expert" id="">
-            </div>
-        </div>
-        <div class="span4">
-            <label class="control-label" style="display: inline-block;">การฝึก/หลักสูตร :</label>
-            <div class="control" style="display: inline-block;">
-                <select name="course" style="width: 150px" id="">
-                    <option value=" ">หลักสูตร</option>
-                    <option value="1">การฝึกทหารใหม่</option>
-                    <option value="2">การฝึกทหารใหม่เฉพาะเจ้าหน้าที่</option>
-                    <option value="3">การฝึกครูทหารใหม่</option>
-                    <option value="4">การฝึกสิบตรีกองประจำการ</option>
-                    <option value="5">การฝึกตามหน้าที่</option>
-                    <option value="6">ตาม ชกท.ของเหล่าต่างๆ</option>
-                    <option value="7">การฝึกบิน ฯลฯ</option>
-                    <option value="-">อื่นๆ</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="control-group">
-        <div class="span3" style="">
-            <label class="control-label" style="display: inline-block;">ครั้งที่ :</label>
-            <div class="control" style="display: inline-block;">
-                <input type="text" name="train_time">
-            </div>
-        </div>
-        
-    </div>
-    <div class="control-group">
-    <div class="span3">
-            <label class="control-label" style="display: inline-block;">ว-ด-ป :</label>
-            <div class="control" style="display: inline-block;">
-                <input type="text" name="train_date" class="date">
-            </div>
-        </div>
-        <div class="span4">
-            <label class="control-label" style="display: inline-block;">เรื่อง/วิชาที่ทำการฝึก :</label>
-            <div style="display: inline-block;">
-                <input type="text" name="subject">
-            </div>
-        </div>
-        <div class="span10 text-center">
-            <button type="submit" class="btn btn-primary">ค้นหา</button>
-            <button type="reset" class="btn btn-primary">ยกเลิก</button>
         </div>
     </div>
     <?php echo $this->Form->end(); ?>

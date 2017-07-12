@@ -151,19 +151,19 @@
             <tr>
                 <td>1</td>
                 <td>
-                    <label style="display: inline;">&nbsp;&nbsp;ส่วยอำนวยการฝึก</label>
+                    <label style="display: inline;">&nbsp;&nbsp;ส่วนอำนวยการฝึก</label>
                 </td>
                 <td>
-                    <input type="text" name="n1" class="span2">
+                    <input type="text" name="n1" style="width:94%">
                 </td>
                 <td>
-                    <input type="text" name="s1" class="span2">
+                    <input type="text" name="s1" style="width:94%">
                 </td>
                 <td>
-                    <input type="text" name="pl1" class="span2">
+                    <input type="text" name="pl1" style="width:94%">
                 </td>
                 <td>
-                    <input type="text" name="note1" class="span2">
+                    <input type="text" name="note1" style="width:94%">
                 </td>
                 <tbody>
             </tr>
@@ -173,16 +173,16 @@
                     <label style="display: inline;">&nbsp;&nbsp;ชุดครูฝึก</label>
                 </td>
                 <td>
-                    <input type="text" name="n2" class="span2">
+                    <input type="text" name="n2" style="width:94%">
                 </td>
                 <td>
-                    <input type="text" name="s2" class="span2">
+                    <input type="text" name="s2" style="width:94%">
                 </td>
                 <td>
-                    <input type="text" name="pl2" class="span2">
+                    <input type="text" name="pl2" style="width:94%">
                 </td>
                 <td>
-                    <input type="text" name="note2" class="span2">
+                    <input type="text" name="note2" style="width:94%">
                 </td>
                 <tbody>
             </tr>
@@ -192,16 +192,16 @@
                     <label style="display: inline;">&nbsp;&nbsp;ส่วนรับการฝึก/ผู้รับฝึก</label>
                 </td>
                 <td>
-                    <input type="text" name="n3" class="span2">
+                    <input type="text" name="n3" style="width:94%">
                 </td>
                 <td>
-                    <input type="text" name="s3" class="span2">
+                    <input type="text" name="s3" style="width:94%">
                 </td>
                 <td>
-                    <input type="text" name="pl3" class="span2">
+                    <input type="text" name="pl3" style="width:94%">
                 </td>
                 <td>
-                    <input type="text" name="note3" class="span2">
+                    <input type="text" name="note3" style="width:94%">
                 </td>
                 <tbody>
             </tr>
@@ -211,16 +211,16 @@
                     <label style="display: inline;">&nbsp;&nbsp;ข้าศึกสมมติ</label>
                 </td>
                 <td>
-                    <input type="text" name="n4" class="span2">
+                    <input type="text" name="n4" style="width:94%">
                 </td>
                 <td>
-                    <input type="text" name="s4" class="span2">
+                    <input type="text" name="s4" style="width:94%">
                 </td>
                 <td>
-                    <input type="text" name="pl4" class="span2">
+                    <input type="text" name="pl4" style="width:94%">
                 </td>
                 <td>
-                    <input type="text" name="note4" class="span2">
+                    <input type="text" name="note4" style="width:94%">
                 </td>
                 <tbody>
             </tr>

@@ -193,7 +193,7 @@
 		<!-- end content -->
 		<?php echo $this->element('Common/sidebar'); ?> 
 	</div>
-   
+
 	<script>
 		$(document).ready(function() {
 			//* jQuery.browser.mobile (http://detectmobilebrowser.com/)
@@ -205,13 +205,11 @@
 			}
 			//* show all elements & remove preloader
 			setTimeout('$("html").removeClass("js")',1000);
-			
-			 
 		});
 	</script>
 	<script>
 	$('.date').datepicker({
-		format: "dd/mm/yyyy",
+		format: "dd-mm-yyyy",
 		language: "th-th",
 	});
 	</script>

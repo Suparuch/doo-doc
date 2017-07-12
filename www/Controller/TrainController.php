@@ -1,9 +1,10 @@
 <?php
 App::uses('AppController', 'Controller');
-
+App::uses('DateLib', 'Lib/Utility');
 
 class TrainController extends AppController
 {
+
     public $name = "Train";
     public $uses = array("TrainPerson","TrainUnit", "TrainResult","TrainSchedule","Rank","Position","Unit");
     function beforeFilter(){
@@ -17,7 +18,8 @@ class TrainController extends AppController
         }
     }
     public function index(){
-        
+        $dateLib = new DateLib();
+
         //Dropdown Rank
         $conditions2 = array('conditions' => array('deleted' => 'N'), 'order' => array('order_sort' => 'asc'), 'fields' => array('name','short_name'));
         $Ranks = $this->Rank->find('list', $conditions2);
@@ -50,17 +52,17 @@ class TrainController extends AppController
                 $belongto = $data['belongto'];
                 $course = $data['course'];
                 $time = $data['train_time'];
-                $date =  $data['train_date'];
+                $date = $dateLib->convertBEToAD($data['train_date']);
                 if(empty($date)){
                     $date = "NULL";
                 }
                 else{
-                    $date = "'$date'";
+                    $date = $date;
                 }
                 $subject = $data['subject'];
                 $data = $this->TrainPerson->query("SELECT * FROM train_persons 
                 WHERE first_name like '$firstname' OR last_name like '$lastname' OR position like '$position' OR expert like '$expert'
-                OR belongto like '$belongto' OR course like '$course'  OR train_time like '$time' OR train_date = $date AND 
+                OR belongto like '$belongto' OR course like '$course'  OR train_time like '$time' OR train_date = '$date' AND 
                 subject like '$subject' AND rank like '$rank' ORDER BY id DESC" );
             }
         }
@@ -78,6 +80,7 @@ class TrainController extends AppController
     }
 
     public function addPersonTrain(){
+        $dateLib = new DateLib();
         //Dropdown Rank
         $conditions2 = array('conditions' => array('deleted' => 'N'), 'order' => array('order_sort' => 'asc'), 'fields' => array('name','short_name'));
         $Ranks = $this->Rank->find('list', $conditions2);
@@ -107,7 +110,7 @@ class TrainController extends AppController
                 $table['subject'] = $data['subject'];
                 $table['specific'] = $data['specific'.$i];
                 $table['train_time'] = $data['time'.$i];
-                $table['train_date'] = $data['date'.$i];
+                $table['train_date'] = $dateLib->convertBEToAD($data['date'.$i]);
                 $table['result'] = $data['result'.$i];
                 $table['teacher'] = $data['teacher'.$i];
                 $table['head'] = $data['head'.$i];
@@ -122,20 +125,24 @@ class TrainController extends AppController
         }
     }
     public function edit_person(){
+        $dateLib = new DateLib();
         $this->autoRender = false;
         if($this->request->is('post')){
             $data = $this->request->data['id'];
             if($data){
                 $row = $this->TrainPerson->query("SELECT * FROM train_persons WHERE id = $data ");
+                $row[0][0]['train_date'] = $dateLib->convertADToBE($row[0][0]['train_date']);
                 echo json_encode($row);
             }
         }
     }
     public function ajaxEdit_person(){
+        $dateLib = new DateLib();
         $this->autoRender = false;
 
         if($data = $this->request->data){
             $data['rank'] = $data['TrainPerson']['rank'];
+            $data['TrainPerson']['train_date'] =  $dateLib->convertBEToAD($data['TrainPerson']['train_date']);
             if($this->TrainPerson->save($data)){
                 $this->redirect('index');
             }
@@ -434,7 +441,6 @@ class TrainController extends AppController
         }
     }
     public function delete_result(){
-
         $this->autoRender = false;
         if($this->request->is('post')){
             if($data = $this->request->data){
@@ -449,7 +455,7 @@ class TrainController extends AppController
                 }       
         }
         }
-         
         $this->redirect('reportResult');
     }
+
 }

@@ -37,7 +37,8 @@
             $("#editHead").val(editData['head']);
             $("#editProblem").val(editData['problem']);
             $("#editNote").val(editData['note']);
-
+            $("#editName2").val(editData['name2']);
+            $("#editPosition2").val(editData['position2']);
         }
 
         function editCourse(course) {
@@ -308,7 +309,7 @@
                 </td>
                 <td>
                     <?php if(!empty($row['0']['train_date']))
-                        echo $this->DateFormat($row['0']['train_date']);
+                        echo $this->DateFormat->formatDateThai($row['0']['train_date']);
                     ?>
                 </td>
                 <?php if($row[ '0'][ 'result']=="0" ){ echo "<td></td><td>&#10003</td>"; } else{ echo "<td>&#10003</td><td></td>"; } ?>

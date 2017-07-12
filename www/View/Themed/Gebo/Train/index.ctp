@@ -37,7 +37,8 @@
             $("#editHead").val(editData['head']);
             $("#editProblem").val(editData['problem']);
             $("#editNote").val(editData['note']);
-
+            $("#editName2").val(editData['name2']);
+            $("#editPosition2").val(editData['position2']);
         }
 
         function editCourse(course) {

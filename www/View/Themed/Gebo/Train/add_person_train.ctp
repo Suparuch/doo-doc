@@ -24,35 +24,33 @@
             </div>
             <div style="display: inline;">
                     <label style="display: inline;">ชื่อ</label>
-
                     <div style="display: inline;">
-                        <input type="text" name="first_name" class="first_name" style="width:170px" require>
+                        <input type="text" name="first_name" class="first_name input-small" required>
                     </div>
             </div>
             <div style="display: inline;">
                     <label style="display: inline;">นามสกุล</label>
 
                     <div style="display: inline;">
-                        <input type="text" name="last_name" class="last_name" style="width:170px" require>
+                        <input type="text" name="last_name" class="last_name input-small" required>
                     </div>
             </div>
             <div style="display: inline;">
                 <label style="display: inline;">ตำแหน่ง</label>
                 <div style="display: inline;">
-                    <input type="text" class="span2 position" name="position" id="position" require>
+                    <input type="text" class="input-small position" name="position" id="position" required>
                 </div>
             </div>
-            <br>
             <div style="display: inline;">
                 <label style="display: inline;">ชกท</label>
                 <div style="display: inline;">
-                    <input type="text" name="expert" class="span2 expert" id="expert" require>
+                    <input type="text" name="expert" class="input-small expert" id="expert" required>
                 </div>
             </div>
             <div style="display: inline;">
                 <label style="display: inline;">สังกัด</label>
                 <div style="display: inline;">
-                    <input type="text" name="belongto" class="belongto" require>
+                    <input type="text" name="belongto" class="belongto input-small" required>
                 </div>
             </div>
         </div>

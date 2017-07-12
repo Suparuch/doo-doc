@@ -237,10 +237,6 @@
 	$(".date").focus(function(){
 		$('.date').datepicker();
 	});
-	$(".date").blur(function(){
-		$('.date').datepicker('hide');
-	});
-
 
     $(".unit").keyup(function(){
         var value = $(".unit").val();

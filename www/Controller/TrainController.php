@@ -29,7 +29,9 @@ class TrainController extends AppController
         $require = array("rank","last_name","first_name", "position", "expert", "belongto", "course", "train_time", "train_date", "subject");
         if($data){
             $empty = true;
-            if($data['course'] == " ")$data['course']=NULL;
+            if($data['course'] == " ") {
+                $data['course']=NULL;
+            }
             foreach($require as $field ){
                 if(!empty($data[$field])){
                     $empty = false;
@@ -38,8 +40,7 @@ class TrainController extends AppController
             }
             if($empty){
                 $data = $this->TrainPerson->query("SELECT * FROM train_persons ORDER BY id DESC");
-            }
-            else{
+            } else {
                 $rank = $data['TrainPerson']['rank'];
                 if($rank == "ไม่จำกัดชั้นยศ"){
                     $rank = "%";
@@ -52,21 +53,18 @@ class TrainController extends AppController
                 $belongto = $data['belongto'];
                 $course = $data['course'];
                 $time = $data['train_time'];
-                $date = $dateLib->convertBEToAD($data['train_date']);
-                if(empty($date)){
-                    $date = "NULL";
-                }
-                else{
-                    $date = $date;
+                if (empty($data['train_date'])) {
+                    $date = '1970-01-01';
+                } else {
+                    $date = $dateLib->convertBEToAD($data['train_date']);
                 }
                 $subject = $data['subject'];
                 $data = $this->TrainPerson->query("SELECT * FROM train_persons 
                 WHERE first_name like '$firstname' OR last_name like '$lastname' OR position like '$position' OR expert like '$expert'
-                OR belongto like '$belongto' OR course like '$course'  OR train_time like '$time' OR train_date = '$date' AND 
-                subject like '$subject' AND rank like '$rank' ORDER BY id DESC" );
+                OR belongto like '$belongto' OR course like '$course'  OR train_time like '$time' OR train_date = '$date' OR 
+                subject like '$subject' OR rank = '$rank' ORDER BY id DESC" );
             }
-        }
-        else{
+        } else {
             $data = $this->TrainPerson->query("SELECT * FROM train_persons ORDER BY id DESC");
         }
         $this->set('data', $data);
@@ -160,6 +158,8 @@ class TrainController extends AppController
 
 
     public function groupTrain(){
+        $dateLib = new DateLib();
+
         //Dropdown Unit
         $conditions2 = array('conditions' => array('deleted' => 'N'), 'order' => array('order_sort' => 'asc'), 'fields' => array('name','short_name'));
         $Units = $this->Unit->find('list', $conditions2);
@@ -198,16 +198,16 @@ class TrainController extends AppController
                 $specific = $data['specific'];
                 $time = $data['time'];
                 $date = $data['date'];
-                if(empty($data) == 0){
-                    $date = "NULL";
+                if (empty($data['date'])) {
+                    $date = '1970-01-01';
+                } else {
+                    $date = $dateLib->convertBEToAD($data['date']);
                 }
-                else{
-                    $date = "'$date'";
-                }
+
                 $data = $this->TrainUnit->query("SELECT * FROM train_units
-                WHERE unit like '$unit' OR 'headUnit' like '$headUnit' OR rank like '$rank' OR name like '$name'
+                WHERE unit like '$unit' OR headUnit like '$headUnit' OR rank like '$rank' OR name like '$name'
                 OR belongto like '$belongto' OR course like '$course' OR subject like '$subject' OR specific like '$specific'
-                OR train_time like '$time' OR train_date = $date ORDER BY id DESC
+                OR train_time like '$time' OR train_date = '$date' ORDER BY id DESC
                 ");
             }
         }
@@ -217,6 +217,8 @@ class TrainController extends AppController
         $this->set('data', $data);
     }
     public function addGroupTrain(){
+        $dateLib = new DateLib();
+
         //Dropdown Unit
         $conditions2 = array('conditions' => array('deleted' => 'N'), 'order' => array('order_sort' => 'asc'), 'fields' => array('name','short_name'));
         $Units = $this->Unit->find('list', $conditions2);
@@ -227,10 +229,7 @@ class TrainController extends AppController
         $Ranks = $this->Rank->find('list', $conditions2);
         $this->set('Ranks', $Ranks);
 
-        
-
-
-       $data = $this->request->data;
+        $data = $this->request->data;
         $table = array();
         if($data){
             for($i=1; $i<=5; $i++){
@@ -245,7 +244,7 @@ class TrainController extends AppController
                 $table['subject'] = $data['subject'.$i];
                 $table['specific'] = $data['specific'.$i];
                 $table['train_time'] = $data['time'.$i];
-                $table['train_date'] = $data['date'.$i];
+                $table['train_date'] = $dateLib->convertBEToAD($data['date'.$i]);
                 $table['result'] = $data['result'.$i];
                 $table['teacher'] = $data['teacher'.$i];
                 $table['head'] = $data['head'.$i];
@@ -256,23 +255,26 @@ class TrainController extends AppController
                 $this->TrainUnit->create();
                 $this->TrainUnit->save($table);
             }
-            $this->redirect('groupTrain');
         }
     }
     public function edit_group(){
-         $this->autoRender = false;
+        $dateLib = new DateLib();
+        $this->autoRender = false;
         if($this->request->is('post')){
             $data = $this->request->data['id'];
             if($data){
                 $row = $this->TrainUnit->query("SELECT * FROM train_units WHERE id = $data ");
+                $row[0][0]['train_date'] = $dateLib->convertADToBE($row[0][0]['train_date']);
                 echo json_encode($row);
             }
         }
     }
-     public function ajaxEdit_group(){
+    public function ajaxEdit_group(){
+        $dateLib = new DateLib();
         $this->autoRender = false;
 
         if($data = $this->request->data){
+            $data['train_date'] =  $dateLib->convertBEToAD($data['date']);
             if($this->TrainUnit->save($data)){
                 $this->redirect('groupTrain');
             }

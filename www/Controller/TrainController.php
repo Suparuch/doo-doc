@@ -29,7 +29,9 @@ class TrainController extends AppController
         $require = array("rank","last_name","first_name", "position", "expert", "belongto", "course", "train_time", "train_date", "subject");
         if($data){
             $empty = true;
-            if($data['course'] == " ")$data['course']=NULL;
+            if($data['course'] == " ") {
+                $data['course']=NULL;
+            }
             foreach($require as $field ){
                 if(!empty($data[$field])){
                     $empty = false;
@@ -38,8 +40,7 @@ class TrainController extends AppController
             }
             if($empty){
                 $data = $this->TrainPerson->query("SELECT * FROM train_persons ORDER BY id DESC");
-            }
-            else{
+            } else {
                 $rank = $data['TrainPerson']['rank'];
                 if($rank == "ไม่จำกัดชั้นยศ"){
                     $rank = "%";
@@ -52,21 +53,18 @@ class TrainController extends AppController
                 $belongto = $data['belongto'];
                 $course = $data['course'];
                 $time = $data['train_time'];
-                $date = $dateLib->convertBEToAD($data['train_date']);
-                if(empty($date)){
-                    $date = "NULL";
-                }
-                else{
-                    $date = $date;
+                if (empty($data['train_date'])) {
+                    $date = '1999-09-09';
+                } else {
+                    $date = $dateLib->convertBEToAD($data['train_date']);
                 }
                 $subject = $data['subject'];
                 $data = $this->TrainPerson->query("SELECT * FROM train_persons 
                 WHERE first_name like '$firstname' OR last_name like '$lastname' OR position like '$position' OR expert like '$expert'
-                OR belongto like '$belongto' OR course like '$course'  OR train_time like '$time' OR train_date = '$date' AND 
-                subject like '$subject' AND rank like '$rank' ORDER BY id DESC" );
+                OR belongto like '$belongto' OR course like '$course'  OR train_time like '$time' OR train_date = '$date' OR 
+                subject like '$subject' OR rank = '$rank' ORDER BY id DESC" );
             }
-        }
-        else{
+        } else {
             $data = $this->TrainPerson->query("SELECT * FROM train_persons ORDER BY id DESC");
         }
         $this->set('data', $data);

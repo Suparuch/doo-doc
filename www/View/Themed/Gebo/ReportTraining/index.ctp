@@ -96,12 +96,10 @@
 
   function selectAll() {
     select++;
-    if (select == 1) {
-      $("input:checkbox.selectID").attr("checked", "checked");
-      select = 2;
+    if (select %2 != 0) {
+      $("input:checkbox.selectID").prop("checked", true);
     } else {
-      $("input:checkbox.selectID").attr("checked", null);
-      select = 0;
+      $("input:checkbox.selectID").prop("checked", false);
     }
   }
 
@@ -260,7 +258,7 @@
         <th rowspan="2"></th>
     </tr>
     <tr>
-        <th>ให้ที่ตั้งหน่วย สถานที่</th>
+        <th>ในที่ตั้งหน่วย สถานที่</th>
         <th>นอกที่ตั้งหน่วยสถานที่</th>
         <th>ประเมินการฝึกสถานที่</th>
         <th>รายการเฉพาะเป็นบุคคล</th>

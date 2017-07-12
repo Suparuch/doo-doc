@@ -132,18 +132,36 @@ class ReportTrainingController extends AppController {
         }
     }
     public function edit_data(){
+        $dateLib = new DateLib();
         $this->autoRender = false;
         $data = $this->request->data['id'];
         if($data){
             $row = $this->ReportTrain->query("SELECT * FROM report_training WHERE id = '$data'");
+            $row[0][0]['fromdatebase'] = $dateLib->convertADToBE($row[0][0]['fromdatebase']);
+            $row[0][0]['fromdateoutbase'] = $dateLib->convertADToBE($row[0][0]['fromdateoutbase']);
+            $row[0][0]['fromdateresult'] = $dateLib->convertADToBE($row[0][0]['fromdateresult']);
+            $row[0][0]['fromdatetrain'] = $dateLib->convertADToBE($row[0][0]['fromdatetrain']);
+            $row[0][0]['todatebase'] = $dateLib->convertADToBE($row[0][0]['todatebase']);
+            $row[0][0]['todateoutbase'] = $dateLib->convertADToBE($row[0][0]['todateoutbase']);
+            $row[0][0]['todateresult'] = $dateLib->convertADToBE($row[0][0]['todateresult']);
+            $row[0][0]['todatetrain'] = $dateLib->convertADToBE($row[0][0]['todatetrain']);
             echo json_encode($row);
         }
 
     }
     public function ajaxEdit_report(){
+        $dateLib = new DateLib();
         $this->autoRender = false;
         $data = $this->request->data;
         if($data){
+            $data['fromdatetrain'] = $dateLib->convertBEToAD($data['fromdatetrain']);
+            $data['todatetrain'] = $dateLib->convertBEToAD($data['todatetrain']);
+            $data['fromdatebase'] = $dateLib->convertBEToAD($data['fromdatebase']);
+            $data['todatebase'] = $dateLib->convertBEToAD($data['todatebase']);
+            $data['fromdateoutbase'] = $dateLib->convertBEToAD($data['fromdateoutbase']);
+            $data['todateoutbase'] = $dateLib->convertBEToAD($data['todateoutbase']);
+            $data['fromdateresult'] = $dateLib->convertBEToAD($data['fromdateresult']);
+            $data['todateresult'] = $dateLib->convertBEToAD($data['todateresult']);
             if($this->ReportTrain->save($data)){
                 $this->redirect('index');
             }

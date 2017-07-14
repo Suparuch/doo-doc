@@ -188,11 +188,11 @@ class TrainController extends AppController
 
             }
             else{
-                $unit =  $data['TrainPerson']['unit'];
-                $headUnit = $data['headUnit'];
-                $rank =  $data['TrainPerson']['rank'];
-                $name = $data['name'];
-                $belongto =  $data['TrainPerson']['belongTo'];
+                // $unit =  $data['TrainPerson']['unit'];
+                // $headUnit = $data['headUnit'];
+                // $rank =  $data['TrainPerson']['rank'];
+                // $name = $data['name'];
+                // $belongto =  $data['TrainPerson']['belongTo'];
                 $course = $data['course'];
                 $subject = $data['subject'];
                 $specific = $data['specific'];
@@ -204,9 +204,13 @@ class TrainController extends AppController
                     $date = $dateLib->convertBEToAD($data['date']);
                 }
 
+                // $data = $this->TrainUnit->query("SELECT * FROM train_units
+                // WHERE unit like '$unit' OR headUnit like '$headUnit' OR rank like '$rank' OR name like '$name'
+                // OR belongto like '$belongto' OR course like '$course' OR subject like '$subject' OR specific like '$specific'
+                // OR train_time like '$time' OR train_date = '$date' ORDER BY id DESC
+                // ");
                 $data = $this->TrainUnit->query("SELECT * FROM train_units
-                WHERE unit like '$unit' OR headUnit like '$headUnit' OR rank like '$rank' OR name like '$name'
-                OR belongto like '$belongto' OR course like '$course' OR subject like '$subject' OR specific like '$specific'
+                WHERE course like '$course' OR subject like '$subject' OR specific like '$specific'
                 OR train_time like '$time' OR train_date = '$date' ORDER BY id DESC
                 ");
             }

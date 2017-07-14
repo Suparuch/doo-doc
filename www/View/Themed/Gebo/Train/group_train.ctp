@@ -111,7 +111,7 @@
 <div>
     <table style="text-align: right;margin-left: auto;margin-right: auto;">
         <tbody>
-            <tr>
+            <!-- <tr>
                 <td>
                     หน่วย :
                 </td>
@@ -134,8 +134,8 @@
                 <td>
                     <input type="text" name="headUnit">
                 </td>
-            </tr>
-            <tr>
+            </tr> -->
+            <!-- <tr>
                 <td>
                     ยศ :
                 </td>
@@ -174,13 +174,13 @@
                             ));
                         ?>
                 </td>
-            </tr>
+            </tr> -->
             <tr>
                 <td>
                     การฝึก/หลักสูตร :
                 </td>
                 <td>
-                    <select name="course">
+                    <select name="course" style="width: 50%;float: left;">
                         <option value=" ">หลักสูตร</option>
                         <option value="ชุดยิง">ชุดยิง</option>
                         <option value="หมู่">หมู่</option>

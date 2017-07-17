@@ -72,7 +72,7 @@
         <div style="text-align: left;">
             <label class="inline" style="display: inline;">เรื่อง/วิชาที่ทำการฝึก</label>
             <div class="inline" style="display: inline;">
-                <input type="text" name="subject" class="subject" require>
+                <input type="text" name="subject" class="subject" required>
             </div>
         </div>
     </div>

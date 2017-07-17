@@ -23,100 +23,88 @@
 <table class="table table-bordered tablesorter" style="margin-top: 20px;">
 	<thead>
 		<tr>
-			<th rowspan="2"></th>
 			<th style="text-align:center">ลำดับ</th>
 			<th style="text-align:center">รายการ/งานการฝึก</th>
 			<th style="text-align:center"><div>หน่วยที่ทำการฝึก</div><div>(นามหน่วยและจำนวนหน่วย)</div></th>
 			<th style="text-align:center">ปัญหาข้อขัดข้องและข้อเสนอแนะ</th>
 			<th style="text-align:center">หมายเหตุ</th>
-			<th rowspan="2"></th>
 		</tr>
 	</thead>
-     <tbody>
+    <tbody>
         <tr>
-            <td></td>
             <td>1</td>
             <td>
-                <input type="text" name="title1" class="span2">
+                <input type="text" name="title1" style="width:94%">
             </td>
             <td>
-                <input type="text" name="unit1" class="span2">
+                <input type="text" name="unit1" style="width:94%">
             </td>
             <td>
-                <input type="text" name="suggestion1" class="span2">
+                <input type="text" name="suggestion1" style="width:94%">
             </td>
             <td>
-                <input type="text" name="note1" class="span2">
+                <input type="text" name="note1" style="width:94%">
             </td>
-            <td></td>
         </tr>
         <tr>
-            <td></td>
             <td>2</td>
             <td>
-                <input type="text" name="title2" class="span2">
+                <input type="text" name="title2" style="width:94%">
             </td>
             <td>
-                <input type="text" name="unit2" class="span2">
+                <input type="text" name="unit2" style="width:94%">
             </td>
             <td>
-                <input type="text" name="suggestion2" class="span2">
+                <input type="text" name="suggestion2" style="width:94%">
             </td>
             <td>
-                <input type="text" name="note2" class="span2">
+                <input type="text" name="note2" style="width:94%">
             </td>
-            <td></td>
         </tr>
         <tr>
-            <td></td>
             <td>3</td>
             <td>
-                <input type="text" name="title3" class="span2">
+                <input type="text" name="title3" style="width:94%">
             </td>
             <td>
-                <input type="text" name="unit3" class="span2">
+                <input type="text" name="unit3" style="width:94%">
             </td>
             <td>
-                <input type="text" name="suggestion3" class="span2">
+                <input type="text" name="suggestion3" style="width:94%">
             </td>
             <td>
-                <input type="text" name="note3" class="span2">
+                <input type="text" name="note3" style="width:94%">
             </td>
-            <td></td>
         </tr>
         <tr>
-            <td></td>
             <td>4</td>
             <td>
-                <input type="text" name="title4" class="span2">
+                <input type="text" name="title4" style="width:94%">
             </td>
             <td>
-                <input type="text" name="unit4" class="span2">
+                <input type="text" name="unit4" style="width:94%">
             </td>
             <td>
-                <input type="text" name="suggestion4" class="span2">
+                <input type="text" name="suggestion4" style="width:94%">
             </td>
             <td>
-                <input type="text" name="note4" class="span2">
+                <input type="text" name="note4" style="width:94%">
             </td>
-            <td></td>
         </tr>
         <tr>
-            <td></td>
             <td>5</td>
             <td>
-                <input type="text" name="title5" class="span2">
+                <input type="text" name="title5" style="width:94%">
             </td>
             <td>
-                <input type="text" name="unit5" class="span2">
+                <input type="text" name="unit5" style="width:94%">
             </td>
             <td>
-                <input type="text" name="suggestion5" class="span2">
+                <input type="text" name="suggestion5" style="width:94%">
             </td>
             <td>
-                <input type="text" name="note5" class="span2">
+                <input type="text" name="note5" style="width:94%">
             </td>
-            <td></td>
         </tr>
     </tbody>
 

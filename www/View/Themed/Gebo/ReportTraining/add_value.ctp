@@ -81,4 +81,4 @@
 	<button type="reset">ยกเลิก</button>
 </div>
 
-<?= $this-Form->end() ?>
+<?= $this->Form->end() ?>

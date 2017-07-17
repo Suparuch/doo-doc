@@ -210,7 +210,8 @@ class TrainController extends AppController
                 // OR train_time like '$time' OR train_date = '$date' ORDER BY id DESC
                 // ");
                 $data = $this->TrainUnit->query("SELECT * FROM train_units
-                WHERE course like '$course' OR subject like '$subject' OR specific like '$specific'
+                WHERE unit like '$unit' OR headUnit like '$headUnit' OR rank like '$rank' OR name like '$name' 
+                OR belongto like '$belongto' OR course like '$course' OR subject like '$subject' OR specific like '$specific'
                 OR train_time like '$time' OR train_date = '$date' ORDER BY id DESC
                 ");
             }
@@ -259,6 +260,7 @@ class TrainController extends AppController
                 $this->TrainUnit->create();
                 $this->TrainUnit->save($table);
             }
+            $this->redirect('groupTrain');
         }
     }
     public function edit_group(){
